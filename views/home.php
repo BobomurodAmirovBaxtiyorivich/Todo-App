@@ -27,9 +27,11 @@
                 veniam
                 vero?
             </p>
-            <form action="index.php" method="POST">
+            <form action="/store" method="POST">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="task" placeholder="Task"
+                           aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <input type="datetime-local" class="form-control" name="due_date" placeholder="Task"
                            aria-label="Recipient's username" aria-describedby="button-addon2">
                     <button class="btn btn-outline-primary" name="sub" type="submit" id="button-addon2">Add</button>
                 </div>
