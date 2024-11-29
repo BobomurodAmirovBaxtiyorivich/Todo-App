@@ -26,11 +26,60 @@ class Todo
         ]);
     }
 
-    public function get()
+    public function get(): array
     {
         $this->query = "SELECT * FROM todos ORDER BY id DESC";
         $this->stmt = $this->conn->query($this->query);
 
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function Start($id): bool
+    {
+        $this->query = "UPDATE todos
+                        SET status = 'in_progress', updated_at = NOW()
+                        WHERE id = :id";
+        return $this->conn->prepare($this->query)->execute([
+            ":id" => $id
+        ]);
+    }
+
+    public function Complete($id): bool
+    {
+        $this->query = "UPDATE todos
+                        SET status = 'completed', updated_at = NOW()
+                        WHERE id = :id";
+        return $this->conn->prepare($this->query)->execute([
+            ":id" => $id
+        ]);
+    }
+
+    public function Pending($id): bool
+    {
+        $this->query = "UPDATE todos
+                        SET status = 'pending', updated_at = NOW()
+                        WHERE id = :id";
+        return $this->conn->prepare($this->query)->execute([
+            ":id" => $id
+        ]);
+    }
+
+    public function Edit($id, $new_title): bool
+    {
+        $this->query = "UPDATE todos
+                        SET title = $new_title, updated_at = NOW()
+                        WHERE id = :id";
+        return $this->conn->prepare($this->query)->execute([
+            ":id" => $id
+        ]);
+    }
+
+    public function Delete($id): bool
+    {
+        $this->query = "DELETE FROM todos
+                        WHERE id = :id";
+        return $this->conn->prepare($this->query)->execute([
+            ":id" => $id
+        ]);
     }
 }
