@@ -45,6 +45,9 @@
         .actions{
             width: 50%;
         }
+        .status{
+            width: 15%;
+        }
     </style>
 </head>
 <body>
@@ -57,7 +60,7 @@
                 veniam
                 vero?
             </p>
-            <form action="/store" method="POST">
+            <form action="/todos" method="POST">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="task" placeholder="Task"
                            aria-label="Recipient's username" aria-describedby="button-addon2" required>
@@ -77,7 +80,7 @@
                 </thead>
                 <tbody>
                 <?php
-                global $todos;
+                /** @var TYPE_NAME $todos  */
 
                 foreach ($todos as $task) { ?>
                     <tr>
@@ -93,7 +96,7 @@
                                 echo $task['status']; ?></td>
                         <?php } else {
                             ?>
-                            <td><?= $task['status'] ?></td>
+                            <td class="status"><?= $task['status'] ?></td>
                         <?php }
                         ?>
                         <td><?= $task['due_date'] ?></td>
