@@ -100,7 +100,7 @@
                 veniam
                 vero?
             </p>
-            <form action="/todos" method="POST">
+            <form action="/add-todos" method="POST">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" name="task" placeholder="Task"
                            aria-label="Recipient's username" aria-describedby="button-addon2" required>

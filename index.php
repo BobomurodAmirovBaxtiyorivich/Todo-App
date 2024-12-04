@@ -11,7 +11,7 @@ $todo = new Todo();
 
 $route = new Route();
 
-$route->getMethod('/', function () {
+$route->getMethod('/', function (){
     views('home');
 });
 
@@ -26,7 +26,7 @@ $route->getMethod('/todos-list', function () use ($todo) {
     ]);
 });
 
-$route->postMethod('/todos', function () use($todo){
+$route->postMethod('/add-todos', function () use($todo){
     if (isset($_POST['task']) and isset($_POST['due_date']) and isset($_POST['sub'])) {
         $todo->store($_POST['task'], $_POST['due_date']);
 
@@ -34,35 +34,25 @@ $route->postMethod('/todos', function () use($todo){
     }
 });
 
-$route->getMethod('/start', function () use ($todo) {
-    if (!empty($_GET['id'])) {
-        $todo->Start($_GET['id']);
+$route->getMethod('/delete/{id}', function ($todoID) use($todo) {
+        $todo->Delete($todoID);
         header('Location: /todos-list');
-    }
 });
 
-$route->getMethod('/complete', function () use ($todo)
-{
-    if (!empty($_GET['id'])) {
-        $todo->Complete($_GET['id']);
+$route->getMethod('/start/{id}', function ($todoID) use ($todo) {
+        $todo->Start($todoID);
         header('Location: /todos-list');
-    }
 });
 
-$route->getMethod('/delete', function () use ($todo)
-{
-    if (!empty($_GET['id'])) {
-        $todo->Delete($_GET['id']);
+$route->getMethod('/complete/{id}', function ($todoID) use ($todo){
+        $todo->Complete($todoID);
         header('Location: /todos-list');
-    }
 });
 
-$route->getMethod('/pending', function () use ($todo)
+$route->getMethod('/pending/{id}', function ($todoID) use ($todo)
 {
-    if (!empty($_GET['id'])) {
-        $todo->Pending($_GET['id']);
+        $todo->Pending($todoID);
         header('Location: /todos-list');
-    }
 });
 
 $route->getMethod("/full_title", function () use ($todo){#

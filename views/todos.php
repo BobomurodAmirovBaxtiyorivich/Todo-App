@@ -118,10 +118,10 @@
                         <?php
                         if ($task['status'] == 'completed') { ?>
                             <td class="strikethrough truncated"><a
-                                        href="/full_title?title=<?= $task['title'] ?>"><?= $task['title'] ?></a></td>
+                                        href="/full_title/<?= $task['id']?>/?title=<?= $task['title'] ?>"><?= $task['title'] ?></a></td>
                         <?php } else { ?>
                             <td class="truncated"><a
-                                        href="/full_title?title=<?= $task['title'] ?>"><?= $task['title'] ?></a></td>
+                                        href="/full_title/<?= $task['id']?>/?title=<?= $task['title'] ?>"><?= $task['title'] ?></a></td>
                         <?php }
                         if ($task['status'] == 'in_progress') {
                             ?>
@@ -137,17 +137,17 @@
                             <?php
                             if ($task['status'] == 'completed') {
                                 ?>
-                                <a href="/pending?id=<?= $task['id'] ?>" type="button"
+                                <a href="/pending/<?= $task['id'] ?>" type="button"
                                    class="btn btn-primary">Pending</a>
-                                <a href="/delete?id=<?= $task['id'] ?>" type="button" class="btn btn-danger">Delete</a>
+                                <a href="/delete/<?= $task['id'] ?>" type="button" class="btn btn-danger">Delete</a>
                             <?php } else {
                                 ?>
-                                <a href="/start?id=<?= $task['id'] ?>" type="button" class="btn btn-primary">Start</a>
-                                <a href="/complete?id=<?= $task['id'] ?>" type="button" class="btn btn-success">Done</a>
-                                <a href="/pending?id=<?= $task['id'] ?>" type="button"
+                                <a href="/start/<?= $task['id'] ?>" type="button" class="btn btn-primary">Start</a>
+                                <a href="/complete/<?= $task['id'] ?>" type="button" class="btn btn-success">Done</a>
+                                <a href="/pending/<?= $task['id'] ?>" type="button"
                                    class="btn btn-primary">Pending</a>
                                 <a href="" type="button" class="btn btn-warning">Edit</a>
-                                <a href="/delete?id=<?= $task['id'] ?>" type="button" class="btn btn-danger">Delete</a>
+                                <a href="/delete/<?= $task['id'] ?>" class="btn btn-danger">Delete</a>
                             <?php }
                             ?>
                         </td>
