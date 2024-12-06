@@ -1,15 +1,18 @@
 <?php
-
 class DB
 {
-    public string $host = 'localhost';
-    public string $dbname = 'Todo_App';
-    public string $user = 'root';
-    public string $password = 'My$par0l';
-    public $conn;
+    public string $host;
+    public string $dbname;
+    public string $user;
+    public string $password;
+    public PDO $conn;
 
     public function __construct()
     {
+        $this->host = $_ENV['DB_HOST'];
+        $this->dbname = $_ENV['DB_NAME'];
+        $this->user = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASSWORD'];
         $this->conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->password);
     }
 }

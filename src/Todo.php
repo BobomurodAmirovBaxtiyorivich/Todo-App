@@ -63,17 +63,6 @@ class Todo
             ":id" => $id
         ]);
     }
-
-    public function Edit($id, $new_title): bool
-    {
-        $this->query = "UPDATE todos
-                        SET title = $new_title, updated_at = NOW()
-                        WHERE id = :id";
-        return $this->conn->prepare($this->query)->execute([
-            ":id" => $id
-        ]);
-    }
-
     public function Delete($id): bool
     {
         $this->query = "DELETE FROM todos
@@ -98,5 +87,18 @@ class Todo
             ":id" => $id
         ]);
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update(int $id, string $title, string $status, string $due_date): void
+    {
+        $this->query = "UPDATE todos
+                        SET title = :title, status = :status, due_date = :due_date
+                        WHERE id = :id";
+        $this->conn->prepare($this->query)->execute([
+            ":id" => $id,
+            ":title" => $title,
+            ":status" => $status,
+            ":due_date" => $due_date
+        ]);
     }
 }

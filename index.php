@@ -2,7 +2,7 @@
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-
+require 'bootstrap.php';
 require 'src/Todo.php';
 require 'helpers.php';
 require 'src/Route.php';
@@ -15,7 +15,32 @@ $route->getMethod('/', function () {
     views('home');
 });
 
-$route->getMethod('/edit/{id}', function ($todoID) use($todo) {
+$route->getMethod('/telegram', function () {
+    require 'telegram.php';
+});
+
+$route->postMethod('/send_message', function () {
+    require 'src/Bot.php';
+
+    $bot = new Bot();
+
+    if (isset($_POST['sub'])) {
+        $bot->makeRequest('sendMessage', [
+            'chat_id' => $_POST['chat_id'],
+            'text' => "Hello my friend!"
+        ]);
+    }
+    header('Location: /telegram');
+});
+
+$route->putMethod('/update/{id}', function ($todoID) use ($todo) {
+    if (isset($_POST['sub'])) {
+        $todo->update($todoID, $_POST['title'], $_POST['status'], $_POST['due_date']);
+    }
+    header('Location: /todos-list');
+});
+
+$route->getMethod('/edit/{id}', function ($todoID) use ($todo) {
     $getTodo = $todo->getTodo($todoID);
     views('edit', ['todo' => $getTodo]);
 });

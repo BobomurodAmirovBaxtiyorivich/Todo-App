@@ -1,79 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Todo App</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        .todo-body {
-            max-width: 800px;
-            box-shadow: 0 0 5px 5px #635f5f;
-            border-radius: 20px;
-        }
+<?php
 
-        .todo-text {
-            font-weight: bold;
-        }
-
-        .info_table {
-            border-radius: 15px;
-        }
-
-        .strikethrough {
-            text-decoration: line-through;
-            color: red;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        .truncated {
-            border: 1px solid #ddd;
-            padding: 8px;
-            max-width: 150px; /* Maksimal kenglik */
-            white-space: nowrap; /* Matnni bir qatorda saqlash */
-            overflow: hidden; /* Chegaradan chiqmaslik uchun */
-            text-overflow: ellipsis; /* "..." ni qo‘shadi */
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: gold;
-        }
-
-        .actions {
-            width: 39%;
-        }
-
-        .status {
-            width: 15%;
-        }
-
-        .log-in {
-            margin-right: 5px;
-        }
-
-        .todos-app {
-            font-weight: bolder;
-        }
-
-        .todos-list {
-            font-weight: bolder;
-        }
-
-        .add-todos {
-            font-weight: bolder;
-        }
-    </style>
-</head>
-<body>
+require "views/components/header.php";
+?>
 <div class="container">
     <nav class="navbar navbar-expand-lg bg-body-tertiary mt-4">
         <div class="container-fluid">
@@ -90,6 +18,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active add-todos" aria-current="page" href="/add-todos">Add todos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active add-todos" aria-current="page" href="/telegram">Telegram bot</a>
                     </li>
                 </ul>
                 <a class="btn btn-outline-success log-in" href="/">Log in</a>
@@ -171,5 +102,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-</body>
-</html>
+<?php
+require "views/components/footer.php";
+?>

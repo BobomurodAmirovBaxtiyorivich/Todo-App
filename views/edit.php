@@ -55,7 +55,8 @@
             <?php
             /** @var TYPE_NAME $todo */
             ?>
-            <form>
+            <form action="/update/<?= $todo['id']?>" method="POST">
+                <input type="text" name="_method" value="PUT" hidden="">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="<?= $todo['title']?>">
