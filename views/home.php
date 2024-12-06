@@ -7,16 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        .log-in{
+        .log-in {
             margin-right: 5px;
         }
-        .todos-app{
+
+        .todos-app {
             font-weight: bolder;
         }
-        .todos-list{
+
+        .todos-list {
             font-weight: bolder;
         }
-        .add-todos{
+
+        .add-todos {
             font-weight: bolder;
         }
     </style>
@@ -46,7 +49,8 @@
         </div>
     </nav>
     <div class="row mt-5">
-        <img src="https://t3.ftcdn.net/jpg/02/59/31/70/360_F_259317013_nJJaBgGGzvXMd6cAyLd6yMJtbdnd61wk.jpg" class="img-fluid" alt="...">
+        <img src="https://t3.ftcdn.net/jpg/02/59/31/70/360_F_259317013_nJJaBgGGzvXMd6cAyLd6yMJtbdnd61wk.jpg"
+             class="img-fluid" alt="...">
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

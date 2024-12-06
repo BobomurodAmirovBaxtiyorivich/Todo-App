@@ -10,6 +10,7 @@
         .todo-body {
             max-width: 800px;
             box-shadow: 0 0 5px 5px #635f5f;
+            border-radius: 20px;
         }
 
         .todo-text {
@@ -48,22 +49,26 @@
         }
 
         .actions {
-            width: 50%;
+            width: 39%;
         }
 
         .status {
             width: 15%;
         }
-        .log-in{
+
+        .log-in {
             margin-right: 5px;
         }
-        .todos-app{
+
+        .todos-app {
             font-weight: bolder;
         }
-        .todos-list{
+
+        .todos-list {
             font-weight: bolder;
         }
-        .add-todos{
+
+        .add-todos {
             font-weight: bolder;
         }
     </style>
@@ -118,10 +123,10 @@
                         <?php
                         if ($task['status'] == 'completed') { ?>
                             <td class="strikethrough truncated"><a
-                                        href="/full_title/<?= $task['id']?>/?title=<?= $task['title'] ?>"><?= $task['title'] ?></a></td>
+                                        href="/full_title/<?= $task['id'] ?>"><?= $task['title'] ?></a></td>
                         <?php } else { ?>
                             <td class="truncated"><a
-                                        href="/full_title/<?= $task['id']?>/?title=<?= $task['title'] ?>"><?= $task['title'] ?></a></td>
+                                        href="/full_title/<?= $task['id'] ?>"><?= $task['title'] ?></a></td>
                         <?php }
                         if ($task['status'] == 'in_progress') {
                             ?>
@@ -138,15 +143,19 @@
                             if ($task['status'] == 'completed') {
                                 ?>
                                 <a href="/pending/<?= $task['id'] ?>" type="button"
-                                   class="btn btn-primary">Pending</a>
+                                   class="btn btn-primary">Restart</a>
                                 <a href="/delete/<?= $task['id'] ?>" type="button" class="btn btn-danger">Delete</a>
-                            <?php } else {
+                            <?php } elseif ($task['status'] == 'in progress') {
                                 ?>
+                                <a href="/pending/<?= $task['id'] ?>" type="button"
+                                   class="btn btn-primary">Restart</a>
+                                <a href="/complete/<?= $task['id'] ?>" type="button" class="btn btn-success">Done</a>
+                                <a href="/edit/<?= $task['id'] ?>" type="button" class="btn btn-warning">Edit</a>
+                                <a href="/delete/<?= $task['id'] ?>" class="btn btn-danger">Delete</a>
+                            <?php } else { ?>
                                 <a href="/start/<?= $task['id'] ?>" type="button" class="btn btn-primary">Start</a>
                                 <a href="/complete/<?= $task['id'] ?>" type="button" class="btn btn-success">Done</a>
-                                <a href="/pending/<?= $task['id'] ?>" type="button"
-                                   class="btn btn-primary">Pending</a>
-                                <a href="" type="button" class="btn btn-warning">Edit</a>
+                                <a href="/edit/<?= $task['id'] ?>" type="button" class="btn btn-warning">Edit</a>
                                 <a href="/delete/<?= $task['id'] ?>" class="btn btn-danger">Delete</a>
                             <?php }
                             ?>

@@ -82,4 +82,21 @@ class Todo
             ":id" => $id
         ]);
     }
+
+    public function full_title($id): array
+    {
+        $this->query = "SELECT title FROM todos WHERE id = {$id}";
+        $this->stmt = $this->conn->query($this->query);
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getTodo(int $id)
+    {
+        $this->query = "SELECT * FROM todos WHERE id = :id";
+        $this->stmt = $this->conn->prepare($this->query);
+        $this->stmt->execute([
+            ":id" => $id
+        ]);
+        return $this->stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

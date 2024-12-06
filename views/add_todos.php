@@ -16,27 +16,9 @@
             font-weight: bold;
         }
 
-        .info_table {
-            border-radius: 15px;
-        }
-
-        .strikethrough {
-            text-decoration: line-through;
-            color: red;
-        }
-
         table {
             border-collapse: collapse;
             width: 100%;
-        }
-
-        .truncated {
-            border: 1px solid #ddd;
-            padding: 8px;
-            max-width: 150px; /* Maksimal kenglik */
-            white-space: nowrap; /* Matnni bir qatorda saqlash */
-            overflow: hidden; /* Chegaradan chiqmaslik uchun */
-            text-overflow: ellipsis; /* "..." ni qo‘shadi */
         }
 
         a {
@@ -47,23 +29,19 @@
             color: gold;
         }
 
-        .actions {
-            width: 50%;
-        }
-
-        .status {
-            width: 15%;
-        }
-        .log-in{
+        .log-in {
             margin-right: 5px;
         }
-        .todos-app{
+
+        .todos-app {
             font-weight: bolder;
         }
-        .todos-list{
+
+        .todos-list {
             font-weight: bolder;
         }
-        .add-todos{
+
+        .add-todos {
             font-weight: bolder;
         }
     </style>
