@@ -5,16 +5,19 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 use App\Bot;
 use App\Todo;
 use App\Route;
+use App\User;
+
 
 require 'bootstrap.php';
 require 'helpers.php';
 
-
-$todo = new Todo();
-
 $route = new Route();
 
 $route->getMethod('/', fn() => require "controllers/homeController.php");
+
+$route->getMethod('/register', fn() => require "controllers/registerController.php");
+
+$route->getMethod('/log_in', fn() => require "controllers/log_inController.php");
 
 $route->getMethod('/telegram', fn() => require "controllers/telegramController.php");
 
