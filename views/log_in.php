@@ -1,34 +1,22 @@
 <?php
 require "components/header.php"
 ?>
+    <div class="container mt-2">
     <nav class="navbar navbar-expand-lg bg-body-tertiary mt-4">
-        <div class="container-fluid">
-            <a class="navbar-brand todos-app" href="/">Todos app</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active todos-list" aria-current="page" href="/todos-list">Todos list</a>
-                    </li>
-                </ul>
+            <div class="container-fluid">
+                <a class="navbar-brand todos-app" href="/">Main</a>
             </div>
-        </div>
-    </nav>
-    <div class="container mt-3">
-        <div class="card bg-light">
+        </nav>
+        <div class="card bg-light mt-4">
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <form>
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                         </div>
-                        <input name="" class="form-control" placeholder="Full name" type="text">
+                        <input name="email" class="form-control" placeholder="Email address" type="email">
                     </div>
-                    <div class="form-group input-group">
+                    <div class="form-group input-group mt-4">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                         </div>

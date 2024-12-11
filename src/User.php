@@ -2,6 +2,8 @@
 
 namespace App;
 
+use PDO;
+
 class User
 {
     public \PDO $conn;
@@ -27,9 +29,11 @@ class User
 
     public function login($email, $password){
         $this->query = "SELECT * FROM users WHERE email = :email AND password = :password";
-        $this->stmt = $this->conn->prepare($this->query)->execute([
+        $this->stmt = $this->conn->prepare($this->query);
+        $this->stmt->execute([
             ":email" => $email,
             ":password" => $password
         ]);
+        return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

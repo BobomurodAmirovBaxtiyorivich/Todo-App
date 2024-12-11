@@ -6,13 +6,11 @@
             class="d-flex justify-content-between p-4"
             style="background-color: #6351ce"
     >
-        <!-- Left -->
+    
         <div class="me-5">
             <span>Get connected with us on social networks:</span>
         </div>
-        <!-- Left -->
 
-        <!-- Right -->
         <div>
             <a href="" class="text-white me-4">
                 <i class="fab fa-facebook-f"></i>
@@ -33,7 +31,6 @@
                 <i class="fab fa-github"></i>
             </a>
         </div>
-        <!-- Right -->
     </section>
     <div
             class="text-center p-3"
