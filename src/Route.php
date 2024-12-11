@@ -1,5 +1,6 @@
 <?php
 
+namespace App;
 class Route
 {
     public string|int|array|null|false $currentRoute;

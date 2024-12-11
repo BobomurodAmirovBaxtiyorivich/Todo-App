@@ -1,4 +1,8 @@
 <?php
+
+namespace App;
+
+use PDO;
 class DB
 {
     public string $host;

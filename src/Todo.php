@@ -1,6 +1,9 @@
 <?php
 
-require "DB.php";
+namespace App;
+
+use App\DB;
+use PDO;
 
 class Todo
 {
