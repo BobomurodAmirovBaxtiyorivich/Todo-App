@@ -26,7 +26,9 @@ if (isset($_POST['sub'])){
         }
 
         if ($check and $check2){
-            $_SESSION['user'] = $user->register($_POST['name'], $_POST['email'], $_POST['pass1']);
+            $info = $user->register($_POST['name'], $_POST['email'], $_POST['pass1']);
+            unset($info['password']);
+            $_SESSION['user'] = $info;
             header('location: /');
         }
     }

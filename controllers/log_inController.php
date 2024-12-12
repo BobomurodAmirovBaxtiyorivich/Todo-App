@@ -17,7 +17,9 @@ if (isset($_POST['sub'])){
             $_SESSION['error'] = ['Email or password is incorrect'];
             header('Location: /log_in');
         } else {
-            $_SESSION['user'] = $user->login($_POST['email'], $_POST['pass']);
+            $info = $user->login($_POST['email'], $_POST['pass']);
+            unset($info['password']);
+            $_SESSION['user'] = $info;
             header('Location: /');
         }
     }
