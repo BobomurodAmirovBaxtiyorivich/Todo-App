@@ -63,7 +63,7 @@
         }
 
         .actions {
-            width: 39%;
+            width: 40%;
         }
 
         .status {

@@ -20,6 +20,8 @@ $route->postMethod('/register', fn() => require "controllers/registerController.
 $route->getMethod('/log_in', fn() => require "controllers/log_inHtmlController.php");
 $route->postMethod('/log_in', fn() => require "controllers/log_inController.php");
 
+$route->getMethod('/log_out', fn() => require "controllers/log_outController.php");
+
 $route->getMethod('/telegram', fn() => require "controllers/telegramController.php");
 
 $route->postMethod('/send_message', fn() => require "controllers/sendmessagefrombotController.php");

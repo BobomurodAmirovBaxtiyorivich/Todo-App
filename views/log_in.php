@@ -26,7 +26,7 @@ require "components/header.php"
                     <?php
                     if (isset($_SESSION['error'])) {
                         ?>
-                        <h6 align="center" class="wrong_pass"><?= $_SESSION['error'][0]?></h6>
+                        <h6 align="center" class="wrong_pass"><?php print_r($_SESSION['error'])?></h6>
                         <?php
                         unset($_SESSION['error']);
                     }
