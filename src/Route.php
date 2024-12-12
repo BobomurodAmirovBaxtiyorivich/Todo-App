@@ -46,12 +46,14 @@ class Route
     public function putMethod($route, $callback): void
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if ($_POST['_method'] == 'PUT') {
-                $resourseID = $this->getResourse();
-                $route = str_replace('{id}', $resourseID, $route);
-                if ($route == $this->currentRoute) {
-                    $callback($resourseID);
-                    exit();
+            if (isset($_POST['_method'])) {
+                if ($_POST['_method'] == 'PUT') {
+                    $resourseID = $this->getResourse();
+                    $route = str_replace('{id}', $resourseID, $route);
+                    if ($route == $this->currentRoute) {
+                        $callback($resourseID);
+                        exit();
+                    }
                 }
             }
         }

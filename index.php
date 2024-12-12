@@ -15,10 +15,10 @@ $route = new Route();
 $route->getMethod('/', fn() => require "controllers/homeController.php");
 
 $route->getMethod('/register', fn() => require "controllers/registerHtmlController.php");
-
 $route->postMethod('/register', fn() => require "controllers/registerController.php");
 
-$route->getMethod('/log_in', fn() => require "controllers/log_inController.php");
+$route->getMethod('/log_in', fn() => require "controllers/log_inHtmlController.php");
+$route->postMethod('/log_in', fn() => require "controllers/log_inController.php");
 
 $route->getMethod('/telegram', fn() => require "controllers/telegramController.php");
 

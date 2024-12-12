@@ -151,27 +151,37 @@
             background-color: #00FFFF;
             border-radius: 10px;
         }
-
-        .sign-in {
-            text-decoration: none;
-            color: #635f5f;
-        }
-
         .no-bullets {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
-        .main-info{
+
+        .main-info {
             text-align: left;
         }
-        .main-sign-up{
+
+        .main-sign-up {
             width: 50%;
             height: 30%;
         }
-        .main-p{
-            font-weight:800;
+
+        .main-p {
+            font-weight: 800;
             font-size: larger;
+        }
+
+        .register {
+            width: 30%;
+        }
+
+        .log-in {
+            width: 30%;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
