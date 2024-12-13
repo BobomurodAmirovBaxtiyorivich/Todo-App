@@ -18,21 +18,25 @@ class Todo
         $this->conn = $pdo->conn;
     }
 
-    public function store($title, $due_date): void
+    public function store($title, $due_date, $user_id): void
     {
-        $this->query = "INSERT INTO todos (title, status, due_date, created_at, updated_at) VALUES (:title, :status, :due_date, NOW(), NOW())";
+        $this->query = "INSERT INTO todos (title, status, due_date, created_at, updated_at, user_id) VALUES (:title, :status, :due_date, NOW(), NOW(), :user_id)";
 
         $this->conn->prepare($this->query)->execute([
             ":title" => $title,
             ":status" => "pending",
-            ":due_date" => $due_date
+            ":due_date" => $due_date,
+            ":user_id" => $user_id
         ]);
     }
 
-    public function get(): array
+    public function getAllTodos($user_id): array
     {
-        $this->query = "SELECT * FROM todos ORDER BY id DESC";
-        $this->stmt = $this->conn->query($this->query);
+        $this->query = "SELECT * FROM todos WHERE user_id = :user_id";
+        $this->stmt = $this->conn->prepare($this->query);
+        $this->stmt->execute([
+            ":user_id" => $user_id
+        ]);
 
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }

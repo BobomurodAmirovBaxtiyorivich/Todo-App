@@ -9,7 +9,7 @@ require "views/components/header.php";
         ?>
         <div class="row mt-5">
             <div class="col-8">
-                <img src="https://t3.ftcdn.net/jpg/02/59/31/70/360_F_259317013_nJJaBgGGzvXMd6cAyLd6yMJtbdnd61wk.jpg"
+                <img src="https://plus.unsplash.com/premium_photo-1681487870238-4a2dfddc6bcb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG8lMjBkbyUyMGxpc3R8ZW58MHx8MHx8fDA%3D"
                      class="img-fluid main-img" alt="...">
             </div>
             <div class="col-4 main-info">
