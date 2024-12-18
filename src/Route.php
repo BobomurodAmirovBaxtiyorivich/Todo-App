@@ -14,13 +14,13 @@ class Route
     {
         $resourseIndex = mb_stripos($route, '{id}');
 
-        if (!$resourseIndex){
+        if (!$resourseIndex) {
             return false;
         }
 
         $resourseValue = substr($this->currentRoute, $resourseIndex);
 
-        if ($limit = mb_stripos($resourseValue, '/')){
+        if ($limit = mb_stripos($resourseValue, '/')) {
             return substr($resourseValue, 0, $limit);
         }
 
@@ -31,7 +31,7 @@ class Route
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             $resourseID = $this->getResourse($route);
-            if ($resourseID){
+            if ($resourseID) {
                 $route = str_replace('{id}', $resourseID, $route);
                 if ($route == $this->currentRoute) {
                     $callback($resourseID);
@@ -64,12 +64,37 @@ class Route
             if (isset($_POST['_method'])) {
                 if ($_POST['_method'] == 'PUT') {
                     $resourseID = $this->getResourse($route);
-                    $route = str_replace('{id}', $resourseID, $route);
+                    if ($resourseID) {
+                        $route = str_replace('{id}', $resourseID, $route);
+                        if ($route == $this->currentRoute) {
+                            $callback($resourseID);
+                            exit();
+                        }
+                    }
                     if ($route == $this->currentRoute) {
                         $callback($resourseID);
                         exit();
                     }
                 }
+            }
+        }
+    }
+
+    public function deleteMethod($route, $callback): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+            $resourseID = $this->getResourse($route);
+            if ($resourseID) {
+                $route = str_replace('{id}', $resourseID, $route);
+                if ($route == $this->currentRoute) {
+                    $callback($resourseID);
+                    exit();
+                }
+            }
+
+            if ($route == $this->currentRoute) {
+                $callback();
+                exit();
             }
         }
     }
