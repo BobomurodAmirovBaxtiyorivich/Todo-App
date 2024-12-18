@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])){
 
 $todo = new App\Todo();
 
-$todos = $todo->getAllTodos($_SESSION['user']['id']);
+$todos = $todo->getAllTodosByID($_SESSION['user']['id']);
 
 views("todos", [
     'todos' => $todos

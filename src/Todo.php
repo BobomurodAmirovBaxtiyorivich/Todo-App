@@ -30,13 +30,21 @@ class Todo
         ]);
     }
 
-    public function getAllTodos($user_id): array
+    public function getAllTodosByID($user_id): array
     {
         $this->query = "SELECT * FROM todos WHERE user_id = :user_id";
         $this->stmt = $this->conn->prepare($this->query);
         $this->stmt->execute([
             ":user_id" => $user_id
         ]);
+
+        return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getAllTodos(): array
+    {
+        $this->query = "SELECT * FROM todos";
+        $this->stmt = $this->conn->query($this->query);
 
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -6,16 +6,19 @@ require 'bootstrap.php';
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class Bot
 {
     const API_URL = 'https://api.telegram.org/bot';
 
     private string $token;
-
     public $client;
 
-    public function makeRequest($method, $data = [])
+    /**
+     * @throws GuzzleException
+     */
+    public function makeRequest($method, $data = []): \Psr\Http\Message\ResponseInterface
     {
         $this->token = $_ENV['TG_TOKEN'];
         $this->client = new Client([
@@ -23,8 +26,6 @@ class Bot
             'timeout' => 2.0,
         ]);
 
-        $request = $this->client->request('POST', $method . '?' . http_build_query($data));
-
-        return $request;
+        return $this->client->request('POST', $method . '?' . http_build_query($data));
     }
 }
